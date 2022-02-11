@@ -23,6 +23,7 @@ export const MenuGroup = styled.div`
     display: flex;
     flex-grow: 1;
     justify-content: flex-end;
+    align-items: center;
 
     > div {
       margin-left: ${theme.spacings.xsmall};
@@ -42,7 +43,9 @@ export const IconWrapper = styled.div`
 export const MenuLink = styled.a`
   ${({ theme }) => css`
     position: relative;
+    color: ${theme.colors.white};
     font-size: ${theme.font.sizes.medium};
+    font-weight: ${theme.font.bold};
     margin: 0.3rem ${theme.spacings.small};
     text-decoration: none;
     text-align: center;
@@ -76,7 +79,13 @@ type MenuFullProps = {
   isOpen: boolean
 }
 
-export const MenuNav = styled.div``
+export const MenuNav = styled.div`
+  ${({ theme }) => css`
+    ${media.greaterThan('medium')`
+      margin-left: ${theme.spacings.small};
+    `}
+  `}
+`
 
 export const MenuFull = styled.nav<MenuFullProps>`
   ${({ theme, isOpen }) => css`
