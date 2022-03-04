@@ -1,6 +1,5 @@
 import { render, screen } from '@testing-library/react'
 import MediaMatch from './index'
-import 'jest-styled-components'
 
 describe('<MediaMatch />', () => {
   let desktopHeading: Element
