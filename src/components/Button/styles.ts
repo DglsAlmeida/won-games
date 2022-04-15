@@ -3,7 +3,7 @@ import { ButtonProps } from '.'
 
 type WrapperProps = {
   hasIcon: boolean
-} & Pick<ButtonProps, 'size' | 'fullWidth'>
+} & ButtonProps
 
 const wrapperModifiers = {
   small: (theme: DefaultTheme) => css`
@@ -49,6 +49,10 @@ export const Wrapper = styled.button<WrapperProps>`
     border: none;
     border-radius: ${theme.border.radius};
     padding: ${theme.spacings.xxsmall};
+
+    &:hover {
+      background: linear-gradient(180deg, #e35565 0%, #d958a6 50%);
+    }
 
     ${!!size && wrapperModifiers[size](theme)};
     ${fullWidth && wrapperModifiers.fullWidth()};

@@ -1,12 +1,16 @@
-import * as Styled from './styles'
+import { AnchorHTMLAttributes, ButtonHTMLAttributes } from 'react'
+import * as S from './styles'
+
+type ButtonTypes =
+  | AnchorHTMLAttributes<HTMLAnchorElement>
+  | ButtonHTMLAttributes<HTMLButtonElement>
 
 export type ButtonProps = {
-  children?: React.ReactNode
   size?: 'small' | 'medium' | 'large'
   fullWidth?: boolean
   icon?: JSX.Element
-  onClick?: () => (event: React.MouseEvent<HTMLButtonElement>) => void
-}
+  as?: string
+} & ButtonTypes
 
 const Button = ({
   children,
@@ -15,10 +19,10 @@ const Button = ({
   fullWidth = false,
   ...props
 }: ButtonProps) => (
-  <Styled.Wrapper size={size} fullWidth={fullWidth} hasIcon={!!icon} {...props}>
+  <S.Wrapper size={size} fullWidth={fullWidth} hasIcon={!!icon} {...props}>
     {!!icon && icon}
     {!!children && <span>{children}</span>}
-  </Styled.Wrapper>
+  </S.Wrapper>
 )
 
 export default Button

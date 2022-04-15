@@ -1,6 +1,6 @@
 import { Meta, Story } from '@storybook/react'
 import { AddShoppingCart } from '@styled-icons/material-outlined/AddShoppingCart'
-import Button from '.'
+import Button, { ButtonProps } from '.'
 
 export default {
   title: 'Button',
@@ -13,15 +13,15 @@ export default {
       type: ''
     }
   }
-} as Meta
+} as unknown as Meta
 
-export const Default: Story = (args) => <Button {...args} />
+export const Default: Story<ButtonProps> = (args) => <Button {...args} />
 
 Default.args = {
   children: 'Buy now'
 }
 
-export const WithIcon: Story = (args) => <Button {...args} />
+export const WithIcon: Story<ButtonProps> = (args) => <Button {...args} />
 
 WithIcon.args = {
   size: 'small',
