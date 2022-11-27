@@ -1,5 +1,4 @@
-import styled, { css } from 'styled-components'
-import { DefaultTheme } from 'styled-components'
+import styled, { css, DefaultTheme } from 'styled-components'
 
 export const Wrapper = styled.article`
   ${({ theme }) => css`
@@ -25,6 +24,16 @@ export const ImageBox = styled.div`
   );
   background-size: 80rem 14rem;
   animation: placeholderShimmer 1s linear infinite forwards;
+
+  @keyframes placeholderShimmer {
+    0% {
+      background-position: -40rem 0;
+    }
+
+    100% {
+      background-position: 40rem 0;
+    }
+  }
 `
 
 export const Content = styled.div`
@@ -97,7 +106,7 @@ const priceModifiers = {
   promotional: (theme: DefaultTheme) => css`
     color: ${theme.colors.gray};
     text-decoration: line-through;
-    margin-right: ${theme.spacings.xsmall};
+    margin-right: ${theme.spacings.xxsmall};
   `
 }
 
